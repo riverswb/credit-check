@@ -1,7 +1,5 @@
-require 'pry'
 class CreditCheck
 attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
-
   def initialize(card_number = "4929735477250543")
     @card_number = card_number
     @valid = false
