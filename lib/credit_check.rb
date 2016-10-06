@@ -34,7 +34,7 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
     end
   end
 
-  def sum_of_digits
+  def total_sum_of_digits
     summed.each do |num|
       @total += num
     end

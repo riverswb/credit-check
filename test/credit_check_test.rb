@@ -30,7 +30,7 @@ class CreditCheckTest < Minitest::Test
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
 
-    assert_equal 80, credit.sum_of_digits
+    assert_equal 80, credit.total_sum_of_digits
   end
 
   def test_default_card_is_valid
@@ -38,7 +38,7 @@ class CreditCheckTest < Minitest::Test
     credit.prepare_card
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
-    credit.sum_of_digits
+    credit.total_sum_of_digits
 
     assert credit.valid?
   end
@@ -48,7 +48,7 @@ class CreditCheckTest < Minitest::Test
     credit.prepare_card
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
-    credit.sum_of_digits
+    credit.total_sum_of_digits
 
     assert_equal "The number is invalid!", credit.valid?
   end
@@ -58,19 +58,19 @@ class CreditCheckTest < Minitest::Test
     credit1.prepare_card
     credit1.multiply_every_other_number
     credit1.sum_digits_greater_than_nine
-    credit1.sum_of_digits
+    credit1.total_sum_of_digits
 
     credit2 = CreditCheck.new("4024007136512380")
     credit2.prepare_card
     credit2.multiply_every_other_number
     credit2.sum_digits_greater_than_nine
-    credit2.sum_of_digits
+    credit2.total_sum_of_digits
 
     credit3 = CreditCheck.new("6011797668867828")
     credit3.prepare_card
     credit3.multiply_every_other_number
     credit3.sum_digits_greater_than_nine
-    credit3.sum_of_digits
+    credit3.total_sum_of_digits
 
     assert credit1.valid?
     assert credit2.valid?
@@ -82,7 +82,7 @@ class CreditCheckTest < Minitest::Test
     credit.prepare_card
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
-    credit.sum_of_digits
+    credit.total_sum_of_digits
 
     assert_equal "The number is valid!", credit.valid?
   end
@@ -92,7 +92,7 @@ class CreditCheckTest < Minitest::Test
     credit.prepare_card
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
-    credit.sum_of_digits
+    credit.total_sum_of_digits
 
     assert credit.valid?
   end
@@ -102,7 +102,7 @@ class CreditCheckTest < Minitest::Test
     credit.prepare_card
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
-    credit.sum_of_digits
+    credit.total_sum_of_digits
 
     assert_equal "The number is invalid!", credit.valid?
   end
