@@ -27,7 +27,7 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
   def sum_digits_greater_than_nine
     @summed = cleaned.map do |num|
       if num > 9
-        num.to_s[0].to_i + num.to_s[1].to_i
+        num - 9
       else
         num
       end
@@ -35,14 +35,13 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
   end
 
   def total_sum_of_digits
-    summed.each do |num|
+    summed.map do |num|
       @total += num
     end
-    total
   end
 
   def valid?
-    valid = true if total % 10 == 0
+    valid = true if (total % 10).zero?
     if valid == true
       "The number is valid!"
     else

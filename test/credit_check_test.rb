@@ -11,7 +11,7 @@ class CreditCheckTest < Minitest::Test
     assert_equal "4929735477250543", credit.card_number
   end
 
-  def test_can_reverse_and_to_integer_card_number
+  def test_can_hash_and_to_integer_card_number
     credit = CreditCheck.new
     prepared = {0=>4, 1=>9, 2=>2, 3=>9, 4=>7, 5=>3, 6=>5, 7=>4, 8=>7, 9=>7, 10=>2, 11=>5, 12=>0, 13=>5, 14=>4, 15=>3}
     assert_equal prepared, credit.prepare_card
@@ -30,7 +30,7 @@ class CreditCheckTest < Minitest::Test
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
 
-    assert_equal 80, credit.total_sum_of_digits
+    assert_equal 80, credit.total_sum_of_digits[-1]
   end
 
   def test_default_card_is_valid
