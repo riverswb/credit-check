@@ -1,6 +1,7 @@
 require 'pry'
 class CreditCheck
 attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
+
   def initialize(card_number = "4929735477250543")
     @card_number = card_number
     @valid = false
@@ -19,8 +20,8 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
 
   def multiply_every_other_number
     index_numbers.each do |key, value|
-      @cleaned << value * 2 if key.even?
-      @cleaned << value if key.odd?
+      cleaned << value * 2 if key.even?
+      cleaned << value if key.odd?
     end
     cleaned
   end
@@ -43,7 +44,7 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
   end
 
   def valid?
-    @valid = true if total % 10 == 0
+    valid = true if total % 10 == 0
     if valid == true
       "The number is valid!"
     else
