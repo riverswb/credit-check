@@ -4,7 +4,7 @@ require './lib/credit_check'
 
 
 class CreditCheckTest < Minitest::Test
-  
+
   def test_has_a_credit_card_number
     credit = CreditCheck.new
 
@@ -50,7 +50,7 @@ class CreditCheckTest < Minitest::Test
     credit.sum_digits_greater_than_nine
     credit.sum_of_digits
 
-    refute credit.valid?
+    assert_equal "The number is invalid!", credit.valid?
   end
 
   def test_multiple_valid_numbers
@@ -75,6 +75,16 @@ class CreditCheckTest < Minitest::Test
     assert credit1.valid?
     assert credit2.valid?
     assert credit3.valid?
+  end
+
+  def test_output_if_valid
+    credit = CreditCheck.new("5541808923795240")
+    credit.prepare_card
+    credit.multiply_every_other_number
+    credit.sum_digits_greater_than_nine
+    credit.sum_of_digits
+
+    assert_equal "The number is valid!", credit.valid?
   end
 
   # def test_it_can_verify_amex_cards

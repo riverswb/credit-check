@@ -22,7 +22,7 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
       @cleaned << value * 2 if key.even?
       @cleaned << value if key.odd?
     end
-    cleaned 
+    cleaned
   end
 
   def sum_digits_greater_than_nine
@@ -44,16 +44,12 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
 
   def valid?
     @valid = true if total % 10 == 0
-    "The number is valid!" if valid == true
-    "The number is invalid!" if valid != false
+    if valid == true
+      "The number is valid!"
+    else
+      "The number is invalid!"
+    end
   end
-
-  # Output
-  ## If it is valid, print "The number is valid!"
-  ## If it is invalid, print "The number is invalid!"
-
-
-
 end
 
 
