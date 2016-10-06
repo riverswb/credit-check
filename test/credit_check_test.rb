@@ -30,7 +30,7 @@ class CreditCheckTest < Minitest::Test
     credit.multiply_every_other_number
     credit.sum_digits_greater_than_nine
 
-    assert_equal 80, credit.total_sum_of_digits[-1]
+    assert_equal 80, credit.total_sum_of_digits
   end
 
   def test_default_card_is_valid

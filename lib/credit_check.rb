@@ -35,9 +35,7 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
   end
 
   def total_sum_of_digits
-    summed.map do |num|
-      @total += num
-    end
+    @total = summed.reduce(:+)
   end
 
   def valid?
