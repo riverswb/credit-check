@@ -51,9 +51,3 @@ attr_reader :card_number, :valid, :index_numbers, :cleaned, :total, :summed
     end
   end
 end
-
-
-# from the rightmost digit moving left =>  array.reverse
-# double the value of every other digit => array.each {|num| num.even?} * 2
-# if product of doubling > 9 , take sum of digits => num[0] + num[1]
-# (sum of digits): total % 10 == 0 it is valid
