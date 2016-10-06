@@ -87,15 +87,23 @@ class CreditCheckTest < Minitest::Test
     assert_equal "The number is valid!", credit.valid?
   end
 
-  # def test_it_can_verify_amex_cards
-  #   credit = CreditCheck.new("342804633855673")
-  #   credit.prepare_card
-  #   credit.multiply_every_other_number
-  #   credit.sum_digits_greater_than_nine
-  #   credit.sum_of_digits
-  #
-  #   assert credit.valid?
-  # end
+  def test_it_can_verify_amex_cards
+    credit = CreditCheck.new("342804633855673")
+    credit.prepare_card
+    credit.multiply_every_other_number
+    credit.sum_digits_greater_than_nine
+    credit.sum_of_digits
+
+    assert credit.valid?
+  end
+
+  def test_not_all_amex_cards_are_valid
+    credit = CreditCheck.new("342801633855673")
+    credit.prepare_card
+    credit.multiply_every_other_number
+    credit.sum_digits_greater_than_nine
+    credit.sum_of_digits
+
+    assert_equal "The number is invalid!", credit.valid?
+  end
 end
-# valid: 342804633855673 = 67 digit[0]/2 + digit[1] => total % 10 == 0
-# invalid: 342801633855673 = 64
